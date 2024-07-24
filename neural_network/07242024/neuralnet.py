@@ -24,7 +24,6 @@ class Model(nn.Module):
 def main():
     torch.manual_seed(0)
     x = torch.rand(100, 1)
-    print(x)
     y = torch.sin(2 * torch.pi * x) + torch.rand(100, 1)
 
     # plotting
