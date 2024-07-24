@@ -1,3 +1,4 @@
+import torch
 import torchvision
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
@@ -19,9 +20,20 @@ def main():
     print('type: ', type(x))
     print('shape: ', x.shape)
 
-    print(x[0])
     plt.imshow(x[0])
     plt.savefig('transformed_mnist.png')
+
+
+    dataloader = torch.utils.data.DataLoader(
+        dataset,
+        batch_size=32,
+        shuffle=True,
+    )
+
+    for x, label in dataloader:
+        print('x shape: ', x.shape)
+        print('label shape:', label.shape)
+        break
 
 
 
